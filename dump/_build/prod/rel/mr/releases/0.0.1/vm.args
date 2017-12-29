@@ -1,0 +1,22 @@
+## Name of the node
+-name mr@127.0.0.1
+
+## Cookie for distributed erlang
+-setcookie *r^/Q?0W*V3xFHjP*<XUV{gp?fo*eVV!~uSU%R?:Fq,iRzP4l0VMV!4`H$7ACrT;
+
+## Heartbeat management; auto-restarts VM if it dies or becomes unresponsive
+## (Disabled by default..use with caution!)
+##-heart
+
+## Enable kernel poll and a few async threads
+##+K true
+##+A 5
+
+## Increase number of concurrent ports/sockets
+##-env ERL_MAX_PORTS 4096
+
+## Tweak GC to run more often
+##-env ERL_FULLSWEEP_AFTER 10
+
+# Enable SMP automatically based on availability
+-smp auto

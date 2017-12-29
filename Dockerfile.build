@@ -1,0 +1,12 @@
+FROM elixir:latest
+
+WORKDIR /app
+
+ADD . /app
+
+
+# Install Hex and Rebar
+RUN mix local.hex --force && mix local.rebar --force
+
+RUN mix do deps.get, deps.compile
+RUN MIX_ENV=prod mix release --env=prod
