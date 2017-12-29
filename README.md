@@ -4,31 +4,29 @@
 
 1. Build tarball (distillery release) in Docker container
 
-```
-docker build ./ -t mr-build -f Dockerfile.build
-```
+   ```
+   docker build ./ -t mr-build -f Dockerfile.build
+   ```
 
-1. Create a container of that build (not sure this is exactly what this step does...)
+1. Create a container of that build (not sure this is exactly what this step does...) which will spit out a long hash string [HASH]
 
-```
-docker create mr-build:latest
-```
-
-which will spit out a long hash string [HASH]
+   ```
+   docker create mr-build:latest
+   ```
 
 1. copy stuff from container to host filesystem
 
-```
-docker cp [HASH]:app/\_build ./dump
-```
+   ```
+   docker cp [HASH]:app/\_build ./dump
+   ```
 
 1. Manually go into finder and move `./dump/_build/prod/rel/mr/bin` and `./dump/_build/prod/rel/mr/releases/0.0.1/mr.tar.gz` to the root this directory
 
 1. Deploy to now, which uses `Dockerfile`
 
-```
-now
-```
+   ```
+   now
+   ```
 
 1. Do aliasing.
 
